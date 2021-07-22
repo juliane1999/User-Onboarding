@@ -2,8 +2,8 @@
 import './App.css';
 import axios from 'axios'
 import React, {useState,useEffect} from 'react'
-import Form from './Form'
-import Schema from './Schema'
+import Form from './Components/Form'
+import Schema from './Validation/Schema'
 import {reach} from 'yup'
 
 const initialFormValues = {
@@ -88,6 +88,20 @@ function App() {
     <div className="App">
       <header><h1>Users</h1></header>
      
+     <Form
+     values={formValues}
+     change={inputChange}
+     submit={formSubmit}
+     disabled={disabled}
+     errors={formErrors}
+     />
+     {
+       user.map(use => {
+         return (
+           <User key={use.id} details={use} />
+         )
+       })
+     }
     </div>
   );
 }
