@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import {boolean} from 'yup/lib/locale'
+
 
 export default  yup.object().shape({
     username:yup

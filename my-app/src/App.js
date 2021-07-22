@@ -4,6 +4,7 @@ import axios from 'axios'
 import React, {useState,useEffect} from 'react'
 import Form from './Components/Form'
 import Schema from './Validation/Schema'
+import User from './Components/User'
 import {reach} from 'yup'
 
 const initialFormValues = {
