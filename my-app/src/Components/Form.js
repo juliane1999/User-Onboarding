@@ -10,12 +10,12 @@ export default function Form (props) {
     errors,
     } = props
 
-    const onSubmit = evt => {
+    const onSubmit = (evt) => {
         evt.preventDefault()
         submit()
     }
 
-    const onChange = evt => {
+    const onChange = (evt) => {
         const { name, value, type, checked } = evt.target
         const valueToUse = type === 'checkbox' ? checked : value
         change(name, valueToUse)
@@ -31,8 +31,8 @@ export default function Form (props) {
                 <div className='errors'>
                 <div>{errors.username}</div>
                 <div>{errors.email}</div>
-                <div>{errors.role}</div>
-                <div>{errors.civil}</div>
+                <div>{errors.password}</div>
+                <div>{errors.terms}</div>
                 </div>
             </div>
             <div className='form-group'>

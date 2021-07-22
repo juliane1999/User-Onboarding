@@ -5,7 +5,7 @@ import React, {useState,useEffect} from 'react'
 import Form from './Components/Form'
 import Schema from './Validation/Schema'
 import User from './Components/User'
-import {reach} from 'yup'
+import * as yup from 'yup'
 
 const initialFormValues = {
   username:'',
@@ -46,18 +46,18 @@ function App() {
     axios.post('https://reqres.in/api/users', newUser)
     .then(res => {
       setUser([res.data,...user])
+      setFormValues(initialFormValues)
     })
     .catch(err => {
       console.log(err)
     })
-    .finally(() => {
-      setFormValues(initialFormValues)
-    })
+    .finally(() => {})
   }
 
   const validate = (name,value) => {
-    reach(Schema,name)
-    validate(value)
+    yup
+    .reach(Schema,name)
+    .validate(value)
     .then((valid) => setFormErrors({...formErrors,[name]: ''}))
     .catch(err => setFormErrors({...formErrors,[name]: err.errors[0]}))
   }
